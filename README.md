@@ -30,6 +30,20 @@ If there are no errors then a link will appear on the terminal, clicking on this
 * Debugger is active!
 * Debugger PIN: 287-256-339
 
+To see the table created inside the google cloud use the command:
+
+select * from oparna.stats; 
+
+ name        | capital_city
+-------------+--------------
+    Malaysia | Kuala Lumpur
+       China |      Beijing
+        Fiji |         Suva
+     England |       London
+     Algeria |      Algiers
+      France |        Paris
+     Germany |       Berlin
+ Afghanistan |        KabulV
 
 ```python
 	# This route is the initial route that the user goes to login.
