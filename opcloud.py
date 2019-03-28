@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request, jsonify
 import json
 import requests
+from cassandra.cluster import Cluster
+from cassandra import ConsistencyLevel
+
+
+cluster = Cluster(['cassandra'])
+session = cluster.connect()
 
 
 app = Flask(__name__)
@@ -17,7 +23,8 @@ def login():
 			error = 'The credentials entered are incorrect!'
 		else:
 			return render_template('homepage.html')
-	return render_template('loginpage.html', error=error)
+		return jsonify(response)
+	#return render_template('loginpage.html', error=error)
 
 @app.route('/homepage',  methods=['GET', 'POST'])
 def home():
@@ -30,7 +37,8 @@ def name_country():
     if response.status_code == 404:
         return "<h1>Error, page does not exist!</h1>", 404
     response = response.json()
-    return render_template('backg.html', result = response)
+    return jsonify(response)
+    #return render_template('backg.html', result = response)
 
 @app.route('/callingcode',  methods=['GET', 'POST'])
 def callcode():
@@ -39,7 +47,8 @@ def callcode():
     if response.status_code == 404:
         return "<h1>Error, page does not exist!</h1>", 404
     response = response.json()
-    return render_template('backg.html', result = response, par="Code {}".format(request.form.get('callingcode')))
+    return jsonify(response)
+    #return render_template('backg.html', result = response, par="Code {}".format(request.form.get('callingcode')))
 
 @app.route('/city',  methods=['GET', 'POST'])
 def capcity():
@@ -48,7 +57,8 @@ def capcity():
 	if response.status_code == 404:
 		return "<h1>Error, page does not exist!</h1>", 404
 	response = response.json()
-	return render_template('backg.html', result = response, par="cityname {}".format(request.form.get('city')))
+	return jsonify(response)
+	#return render_template('backg.html', result = response, par="cityname {}".format(request.form.get('city')))
 
 
 
