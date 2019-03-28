@@ -52,7 +52,7 @@ kubectl create -f cassandra-peer-service.yml
 kubectl create -f cassandra-service.yml 
 kubectl create -f cassandra-replication-controller.yml
 
-Gor name of our cassandra container:
+Got name of our cassandra container:
 kubectl get pods -l name=cassandra
 	 
 Check that the ring has been formed between all of the  Cassandra instances:
@@ -105,41 +105,6 @@ select * from oparna.stats;
 
 	# The error code that appears when the page does not exist
 	if response.status_code == 404:
-
-
-```
-
-
-To see the table created inside the google cloud use the command:
-
-select * from oparna.stats; 
-
- name        | capital_city
--------------+--------------
-    Malaysia | Kuala Lumpur
-       China |      Beijing
-        Fiji |         Suva
-     England |       London
-     Algeria |      Algiers
-      France |        Paris
-     Germany |       Berlin
- Afghanistan |        KabulV
-
-```python
-	# This route is the initial route that the user goes to login.
-	@app.route('/', methods=['GET', 'POST'])
-
-	#This is used to find method whether it is POST or GET
-	request.method == 'POST'
-
-	# In order to the POST data I do this
-	request.form['username']
-
-	# The error code that appears when the page does not exist, in our example this would be the case when a invalid country is entered.
-	if response.status_code == 404:
-
-	# returns a html response
-	return render_template('background.html', result = response)
 
 
 ```
