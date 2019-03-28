@@ -41,9 +41,6 @@ If there are no errors then a link will appear on the terminal, clicking on this
 	# In order to the POST data I do this
 	request.form['username']
 
-	# We take the password from the request and cross reference it with the password that we already have
-    hash(request.form['password'])
-
 	# The error code that appears when the page does not exist, in our example this would be the case when a invalid country is entered.
 	if response.status_code == 404:
 
